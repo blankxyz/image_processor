@@ -1,0 +1,102 @@
+identity:
+  name: "image_resize"
+  author: "will"
+  label:
+    en_US: "image_resize"
+    zh_Hans: "image_resize"
+    pt_BR: "image_resize"
+description:
+  human:
+    en_US: "图片调整器"
+    zh_Hans: "图片调整器"
+    pt_BR: "图片调整器"
+  llm: "图片调整器"
+parameters:
+  - name: input_image
+    type: files
+    required: true
+    label:
+      en_US: Image file
+      zh_Hans: 图片文件
+      pt_BR: Image file
+    human_description:
+      en_US: An image resize tool
+      zh_Hans: 用于图片大小调整
+      pt_BR: An image resize tool
+    llm_description: An image resize tool
+    form: llm
+  - name: host_url
+    type: string
+    required: false
+    default: ""
+    label:
+      en_US: Host URL
+      zh_Hans: 主机URL
+    human_description:
+      en_US: The host URL for file access
+      zh_Hans: 文件访问的主机URL
+    form: form
+  - name: resize_method
+    type: select
+    required: true
+    default: "fit"
+    label:
+      en_US: Resize Method
+      zh_Hans: 调整方法
+    human_description:
+      en_US: Method to resize the image
+      zh_Hans: 调整图片的方法
+    form: form
+    options:
+      - value: "fit"
+        label:
+          en_US: Fit (Keep Aspect Ratio)
+          zh_Hans: 适应 (保持宽高比)
+      - value: "crop"
+        label:
+          en_US: Crop to Exact Size
+          zh_Hans: 裁剪到精确尺寸
+      - value: "stretch"
+        label:
+          en_US: Stretch (May Distort)
+          zh_Hans: 拉伸 (可能变形)
+  - name: quality
+    type: number
+    required: false
+    default: 90
+    label:
+      en_US: Output Quality
+      zh_Hans: 输出质量
+    human_description:
+      en_US: Output quality (1-100, higher is better)
+      zh_Hans: 输出质量 (1-100，数值越高质量越好)
+    form: form
+    min: 1
+    max: 100
+  - name: output_format
+    type: select
+    required: false
+    default: "jpeg"
+    label:
+      en_US: Output Format
+      zh_Hans: 输出格式
+    human_description:
+      en_US: Output image format
+      zh_Hans: 输出图片格式
+    form: form
+    options:
+      - value: "jpeg"
+        label:
+          en_US: JPEG
+          zh_Hans: JPEG
+      - value: "png"
+        label:
+          en_US: PNG
+          zh_Hans: PNG
+      - value: "webp"
+        label:
+          en_US: WebP
+          zh_Hans: WebP
+extra:
+  python:
+    source: tools/image_resize.py

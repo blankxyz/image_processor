@@ -1,0 +1,51 @@
+version: 0.0.1
+type: plugin
+author: will
+name: image_resize
+label:
+  en_US: image_resize
+  ja_JP: image_resize
+  zh_Hans: image_resize
+  pt_BR: image_resize
+description:
+  en_US: 图片调整器
+  ja_JP: 图片调整器
+  zh_Hans: 图片调整器
+  pt_BR: 图片调整器
+icon: icon.png
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+    model:
+      enabled: true
+      llm: true
+      text_embedding: false
+      rerank: false
+      tts: false
+      speech2text: false
+      moderation: false
+    endpoint:
+      enabled: true
+    app:
+      enabled: true
+    storage:
+      enabled: true
+      size: 1048576
+plugins:
+  tools:
+    - provider/image_resize.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: null
+created_at: 2025-07-03T03:24:43.446040285Z
+privacy: PRIVACY.md
+verified: false
