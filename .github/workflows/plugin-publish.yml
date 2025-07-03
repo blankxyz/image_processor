@@ -72,8 +72,8 @@ jobs:
 
           cd dify-plugins
 
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
+          git config user.name "Bai Tian"
+          git config user.email "blankxyz@gmail.com"
 
           git fetch origin main
           git checkout main
