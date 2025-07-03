@@ -1,6 +1,6 @@
 version: 0.0.1
 type: plugin
-author: will
+author: blankxyz@gmail.com
 name: image_resize
 label:
   en_US: image_resize

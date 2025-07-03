@@ -1,16 +1,16 @@
 identity:
-  name: "image_resize"
-  author: "will"
+  name: image_resize
+  author: blankxyz@gmail.com
   label:
-    en_US: "image_resize"
-    zh_Hans: "image_resize"
-    pt_BR: "image_resize"
+    en_US: image_resize
+    zh_Hans: image_resize
+    pt_BR: image_resize
 description:
   human:
-    en_US: "图片调整器"
-    zh_Hans: "图片调整器"
-    pt_BR: "图片调整器"
-  llm: "图片调整器"
+    en_US: 图片调整器
+    zh_Hans: 图片调整器
+    pt_BR: 图片调整器
+  llm: 图片调整器
 parameters:
   - name: input_image
     type: files
@@ -28,7 +28,7 @@ parameters:
   - name: host_url
     type: string
     required: false
-    default: ""
+    default: 
     label:
       en_US: Host URL
       zh_Hans: 主机URL
@@ -39,7 +39,7 @@ parameters:
   - name: resize_method
     type: select
     required: true
-    default: "fit"
+    default: fit
     label:
       en_US: Resize Method
       zh_Hans: 调整方法
@@ -48,15 +48,15 @@ parameters:
       zh_Hans: 调整图片的方法
     form: form
     options:
-      - value: "fit"
+      - value: fit
         label:
           en_US: Fit (Keep Aspect Ratio)
           zh_Hans: 适应 (保持宽高比)
-      - value: "crop"
+      - value: crop
         label:
           en_US: Crop to Exact Size
           zh_Hans: 裁剪到精确尺寸
-      - value: "stretch"
+      - value: stretch
         label:
           en_US: Stretch (May Distort)
           zh_Hans: 拉伸 (可能变形)
@@ -76,7 +76,7 @@ parameters:
   - name: output_format
     type: select
     required: false
-    default: "jpeg"
+    default: jpeg
     label:
       en_US: Output Format
       zh_Hans: 输出格式
@@ -85,15 +85,15 @@ parameters:
       zh_Hans: 输出图片格式
     form: form
     options:
-      - value: "jpeg"
+      - value: jpeg
         label:
           en_US: JPEG
           zh_Hans: JPEG
-      - value: "png"
+      - value: png
         label:
           en_US: PNG
           zh_Hans: PNG
-      - value: "webp"
+      - value: webp
         label:
           en_US: WebP
           zh_Hans: WebP
