@@ -1,12 +1,12 @@
-version: 0.0.1
+version: 0.0.2
 type: plugin
 author: blankxyz
-name: image_resize
+name: image_resize_t
 label:
-  en_US: image_resize
-  ja_JP: image_resize
-  zh_Hans: image_resize
-  pt_BR: image_resize
+  en_US: image_resize_t
+  ja_JP: image_resize_t
+  zh_Hans: image_resize_t
+  pt_BR: image_resize_t
 description:
   en_US: 图片调整器
   ja_JP: 图片调整器

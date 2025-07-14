@@ -36,8 +36,8 @@ class ImageProcessorTool(Tool):
                 original_width, original_height = img.size
                 print(f"Original image size: {original_width}x{original_height}")
 
-                # 目标尺寸 (1920x1080)
-                target_width, target_height = 1080, 720
+                # 目标尺寸 - 1080p 是 1920x1080 (宽x高)
+                target_width, target_height = 1920, 1080
 
                 # 根据方法调整尺寸
                 if resize_method == "fit":
@@ -132,9 +132,12 @@ class ImageProcessorTool(Tool):
             })
             return
 
-        if not isinstance(imgs, list):
+        # 如果是字符串URL，转换为列表处理
+        if isinstance(imgs, str):
+            imgs = [imgs]
+        elif not isinstance(imgs, list):
             yield self.create_json_message({
-                "result": "请提供图片文件列表"
+                "result": "请提供图片文件URL或文件列表"
             })
             return
 
@@ -159,7 +162,25 @@ class ImageProcessorTool(Tool):
 
         for img in imgs:
             # 获取正确的字节流数据
-            if isinstance(img, File):
+            if isinstance(img, str):
+                # 处理字符串URL
+                try:
+                    url = img
+                    if not url.startswith(('http://', 'https://')):
+                        # 去掉末尾的斜杠
+                        host_url = host_url.rstrip('/')
+                        url = f"{host_url}/{url}"
+                    # 下载图片
+                    response = requests.get(url)
+                    response.raise_for_status()
+                    input_image_bytes = response.content
+                    print(f"Downloaded image from: {url}")
+                except Exception as e:
+                    yield self.create_json_message({
+                        "result": f"下载图片失败: {str(e)}"
+                    })
+                    continue
+            elif isinstance(img, File):
                 try:
                     # 先判断File mime 是否为图片类型
                     if img.mime_type not in ["image/jpeg", "image/png", "image/gif", "image/webp", "image/bmp"]:

@@ -1,10 +1,10 @@
 identity:
-  name: image_resize
+  name: image_resize_t
   author: blankxyz
   label:
-    en_US: image_resize
-    zh_Hans: image_resize
-    pt_BR: image_resize
+    en_US: image_resize_t
+    zh_Hans: image_resize_t
+    pt_BR: image_resize_t
 description:
   human:
     en_US: 图片调整器
@@ -13,7 +13,7 @@ description:
   llm: 图片调整器
 parameters:
   - name: input_image
-    type: files
+    type: string
     required: true
     label:
       en_US: Image file
@@ -23,7 +23,6 @@ parameters:
       en_US: An image resize tool
       zh_Hans: 用于图片大小调整
       pt_BR: An image resize tool
-    llm_description: An image resize tool
     form: llm
   - name: host_url
     type: string
