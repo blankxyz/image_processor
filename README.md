@@ -6,6 +6,8 @@
   This repository contains the complete documentation and example code for properly handling File type parameters in Dify plugins. It addresses common issues developers face when working with file inputs and outputs in the Dify
   plugin ecosystem.
 
+  当前的main版本为输入url的内容，如果需要文件版本，请参考0.0.1
+
   📚 What's Included
 
   - Complete Documentation: Detailed guide covering all aspects of File parameter handling
